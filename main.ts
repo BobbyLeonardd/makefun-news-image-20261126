@@ -6,7 +6,7 @@
 import { copyFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-const OUT_NAME = 'entry.png';
+const OUT_NAME = 'entry.png';  // the page, copied byte for byte
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? process.env.OUTPUT_DIR ?? '/output';
 const source = new URL('./' + OUT_NAME, import.meta.url);
 
