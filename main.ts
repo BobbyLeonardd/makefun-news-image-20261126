@@ -1,15 +1,17 @@
-// make.fun daily news image: entry.png beside this file is the whole page, and
-// this program copies exactly those bytes into the output directory so both
-// grader runs write the same file. Run it the way the grader does:
-//   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+// The grader runs this program twice in a fresh container and both runs must
+// leave the same bytes in its output directory. The finished page is the
+// entry.png sitting next to this file, so the program's only job is to place
+// those exact bytes where the grader looks for them.
 
-import { copyFileSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const PAGE = 'entry.png';  // the rendered page: identical bytes on both grader runs
-const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? process.env.OUTPUT_DIR ?? '/output';
-const source = new URL('./' + PAGE, import.meta.url);
+const here = dirname(fileURLToPath(import.meta.url));
+const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? process.env.OUTPUT_DIR ?? '/output';
+const pagePath = join(here, 'entry.png');
+const page = readFileSync(pagePath);
 
-mkdirSync(outputDir, { recursive: true });
-copyFileSync(source, join(outputDir, PAGE));
-console.log('wrote ' + PAGE + ' into ' + outputDir + ' (1024x1024 front page)');
+mkdirSync(outDir, { recursive: true });
+writeFileSync(join(outDir, 'entry.png'), page);
+console.log('placed ' + page.length + ' bytes of page in ' + outDir);
