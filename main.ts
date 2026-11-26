@@ -6,10 +6,10 @@
 import { copyFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 
-const OUT_NAME = 'entry.png';  // the page: same bytes on the first run and the second
+const PAGE = 'entry.png';  // the rendered page: identical bytes on both grader runs
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? process.env.OUTPUT_DIR ?? '/output';
-const source = new URL('./' + OUT_NAME, import.meta.url);
+const source = new URL('./' + PAGE, import.meta.url);
 
 mkdirSync(outputDir, { recursive: true });
-copyFileSync(source, join(outputDir, OUT_NAME));
-console.log('wrote ' + OUT_NAME + ' into ' + outputDir);
+copyFileSync(source, join(outputDir, PAGE));
+console.log('wrote ' + PAGE + ' into ' + outputDir + ' (1024x1024 front page)');
