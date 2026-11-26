@@ -5,20 +5,20 @@
 [![reward](https://make.fun/badge/news-image-20261126/BobbyLeonardd/makefun-news-image-20261126/reward.svg)](https://make.fun/bounty/news-image-20261126?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261126)
 
 One 1024x1024 front page for Thursday 26 November 2026: the day's world news, drawn as a
-newspaper page.
+newspaper page that stays readable at 1:1.
 
 ## What the page carries
 
-- The date set large at the top, with a deck naming three lead stories.
-- A region index of ten regions whose counts sum to the 48 stories on the page.
-- A day-ahead timeline of the day's scheduled events, with the local time each is due.
-- Six key figures, from the tariff round to the flooded West Java mine.
-- Three lead cards with a summary, a why-it-matters line and a source.
-- Ten story cards across the regions, each with a status badge and a source.
-- Thirty-five one-line briefs in three columns.
-- A world map with numbered pins for the thirteen main stories, and an enlarged Europe
-  and Gulf inset for the crowded ones.
-- A date-check note, a badge key and the wire sources used.
+- The date set large at the top, with a deck naming the day's main threads.
+- A dark figures band: four counted numbers from the day's reporting.
+- Three lead cards, each with a drawn mark in its own band, a headline, a summary, a
+  why-it-matters line and a source.
+- Ten story cards across the regions, each with a mark band, a headline, a summary, a
+  source line, and a status badge on the same baseline as that source.
+- Thirty-five numbered stories in total, spread over ten regions.
+- A world map with numbered pins for the thirteen featured stories.
+- Twenty-two further stories in a two-column brief list beside the map.
+- A date-check note, a badge key, a stories-by-continent tally and the wire sources used.
 
 ## Run it
 
@@ -27,4 +27,4 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
 `entry.png` is the page; `main.ts` copies it into the output directory so both grader runs
-write the same bytes. Every picture on the page is drawn in code; no photographs are used.
+write the same bytes. Every mark on the page is drawn in code; no photographs are used.
